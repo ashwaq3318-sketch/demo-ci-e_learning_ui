@@ -1,0 +1,129 @@
+name: Basic CI
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run build
+        run: echo "CI is running"
+```
+**Save with Ctrl + S**
+
+🎙️ Say: *"This is our GitHub Actions workflow — it triggers automatically on every pull request"*
+
+---
+
+### STEP 5 — Save and Push
+First commit everything:
+```
+git add .
+git commit -m "Add basic CI"
+```
+Then connect to GitHub and push:
+```
+git remote add origin https://github.com/YOUR-USERNAME/demo-ci-repo.git
+git branch -M main
+git push -u origin main
+```
+🎙️ Say: *"CI is now CREATED. This completes Practical 1"*
+
+---
+---
+
+# 📌 PRACTICAL 2 — Run Pipeline on Every Pull Request (LIVE)
+
+### STEP 1 — Create a Feature Branch
+```
+git checkout -b feature-change
+```
+🎙️ Say: *"We create a feature branch to simulate a developer making a change"*
+
+---
+
+### STEP 2 — Make a Small Code Change
+```
+echo bad code >> test.txt
+git commit -am "Introduce change"
+```
+🎙️ Say: *"We add a change and commit it on the feature branch"*
+
+---
+
+### STEP 3 — Push Branch to GitHub
+```
+git push origin feature-change
+```
+🎙️ Say: *"We push the feature branch to GitHub — now we will create a Pull Request"*
+
+---
+
+### STEP 4 — Open Pull Request (Explain UI)
+**Switch to browser — show GitHub:**
+1. Go to your **GitHub repository**
+2. Click **"Compare & pull request"** button
+3. Click **"Create pull request"**
+
+🎙️ Say: *"As soon as the PR is created — CI starts automatically. You can see the status appearing below the PR"*
+
+---
+
+### STEP 5 — Show Pipeline Output
+**In GitHub — click on the CI status:**
+1. Click **"Details"** next to the CI check
+2. Show the pipeline running:
+
+🎙️ Say: *"Look at the pipeline — it shows Checkout code running, then Run build running. This is exactly what happens in real companies automatically"*
+
+**If passing show:**
+```
+✓ Checkout code
+✓ Run build
+```
+
+**If failing show:**
+```
+✗ Job failed
+```
+
+---
+
+### STEP 6 — Show Merge Blocked
+**Back in GitHub PR page:**
+
+🎙️ Say: *"If the CI checks fail — GitHub blocks the merge automatically. You can see the message:"*
+```
+✗ Cannot merge — checks failed
+```
+🎙️ Say: *"This protects the main branch from broken code — no one can merge until all checks pass"*
+
+---
+
+## ✅ Summary of All CMD Commands in Order:
+
+**Practical 1:**
+```
+cd C:\Users\user\Desktop\Github_Recorded
+mkdir demo-ci-repo
+cd demo-ci-repo
+git init
+code math.js
+mkdir .github
+mkdir .github\workflows
+code .github\workflows\ci.yml
+git add .
+git commit -m "Add basic CI"
+git remote add origin https://github.com/YOUR-USERNAME/demo-ci-repo.git
+git branch -M main
+git push -u origin main
+```
+
+**Practical 2:**
+```
+git checkout -b feature-change
+echo bad code >> test.txt
+git commit -am "Introduce change"
+git push origin feature-change
