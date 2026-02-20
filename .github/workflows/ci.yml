@@ -1,15 +1,19 @@
-name: Basic CI
+name: CI
 
 on:
   pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - feature-change
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Run build
-        run: echo "CI is now running"
-```
-**Save with Ctrl + S**
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      - name: Run build
+        run: echo "Build successful"
